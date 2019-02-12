@@ -1,0 +1,21 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+using namespace std;
+
+int main()
+{ int p;
+ float d,pt;
+ do {
+  cout<<"ingrese el precio original sin descuento del producto"<<endl;
+  cin>> p;
+    }
+ while(p<0);
+   d= p*0.5;
+   pt= p-d;
+
+ cout<<"El precio total con descuento es:"<<pt<<endl;
+
+
+	return 0;
+}
