@@ -1,0 +1,53 @@
+Persona.h
+#pragma once
+class Persona
+{
+private:
+	int CI;
+	int Edad;
+public:
+	Persona(int , int );
+	void Leer();
+	void Comer();
+	~Persona(void);
+};
+Persona.cpp
+#include "StdAfx.h"
+#include "Persona.h"
+#include <iostream>
+using namespace std;
+Persona::Persona(int CIN,int EdadF)
+{
+	CI=CIN;
+	Edad=EdadF;
+}
+void Persona::Leer()
+{
+	cout<<"Mi CI es: "<<CI<<" y mi Edad es: "<<Edad<<endl;
+}
+void Persona::Comer()
+{
+	cout<<"Mi CI es: "<<CI<<" y estoy comiendo"<<endl;
+}
+Persona::~Persona(void)
+{
+}
+PrimeraClasePOO
+// PrimeraClasePOO.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "stdlib.h"
+#include <iostream>
+#include "conio.h"
+#include "Persona.h"
+using namespace std;
+
+void main()
+{
+Persona p1=Persona(10507291,19);
+p1.Leer();
+p1.Comer();
+getch();
+
+}
