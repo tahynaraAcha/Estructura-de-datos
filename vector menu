@@ -1,0 +1,138 @@
+** Vector.h **
+#pragma once
+#define MAX 100
+class vector
+{
+private:
+	int vec[MAX], n;
+public:
+	vector(int _n); // constructor
+	~vector(void); //destructor
+
+	void cargarVector(); //metodos
+	void mostrarVector();
+	void ordenarVector();
+	void ordenarVectordes();
+};
+
+** Vector.cpp **
+#include "StdAfx.h"
+#include <iostream>
+#include "vector.h"
+
+using namespace std;
+
+vector::vector(int _n)
+{
+	n=_n	;
+}
+
+
+vector::~vector(void)
+{
+}
+
+void vector::cargarVector(){
+	for(int i=0;i<n;i++){
+		cout<<"vec["<<i<<"] =" ;
+		cin>>vec[i];
+	}
+}
+
+void vector::mostrarVector(){
+	for(int i=0;i<n;i++){
+		cout<<vec[i]<<", ";
+	}
+	cout<<endl;
+}
+
+void vector::ordenarVector(){
+	int aux;
+	for(int i=0; i<(n-1); i++){
+		for(int j=i; j<n; j++){
+			if(vec[i] > vec[j]){
+				aux = vec[i];
+				vec[i] = vec[j];
+				vec[j] = aux;
+			}
+		}
+	}
+}
+
+void vector::ordenarVectordes(){
+	int aux;
+	for(int i=0; i<(n-1); i++){
+		for(int j=i; j<n; j++){
+			if(vec[i] < vec[j]){
+				aux = vec[i];
+				vec[i] = vec[j];
+				vec[j] = aux;
+			}
+		}
+	}
+}
+
+
+
+
+
+** Ejemplo Vector Main **
+// Ejemplo Vector.cpp : Defines the entry point for the console application.
+//
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "vector.h"  //Declarar el header de la clase
+
+
+
+using namespace std;
+
+void main(){
+
+	int vec[MAX], n, op;
+
+	
+	do {
+		cout<<"Ingrese el tamanio del vector : ";
+		cin>>n;
+	} while ((n>MAX) || (n<=0));
+	vector vector1(n);  // Declarando el objeto vector1 de la clase vector
+	
+
+	do{
+		cout<<"-----       M E N U        -----"<<endl;
+		cout<<"|1.- Cargar Vector.            |"<<endl;
+		cout<<"|2.- Mostrar Vector.           |"<<endl;
+		cout<<"|3.- Ordenar Asc Vector.       |"<<endl;
+		cout<<"|4.- Ordenar Desc Vector.      |"<<endl;
+		cout<<"|0.- Salir                     |"<<endl;
+		cout<<"--------------------------------"<<endl;
+		cout<<" Elija una opcion"<<endl;
+		cin>>op;
+		switch(op){
+		case 1:
+			vector1.cargarVector();
+			
+			break;
+		case 2:
+			vector1.mostrarVector();
+			
+			break;
+		case 3:
+			vector1.ordenarVector();
+			
+			break;
+		case 4:
+			vector1.ordenarVectordes();
+			
+		case 0: 
+			cout<<"Salir"<<endl;
+			break;
+		default:
+			cout<<"Error: Opcion no valida..."<<endl;
+			break;
+		}
+	}while(op!=0);
+	getch();
+}
