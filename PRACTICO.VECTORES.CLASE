@@ -1,0 +1,888 @@
+EJERCICIO 1
+//ejercicio1.h
+#pragma once
+#include <string>
+#define NMAX 100
+class ejercicio1
+
+{
+private: float V[NMAX];
+ int n;
+public:
+vector(int _n);
+~vector(void);
+    void cargar(int n);
+void CargarVector();
+void MostrarVector();
+int Mayor();
+
+};
+ 
+//ejercicio12.cpp
+#include "StdAfx.h"
+#include "vector.h"
+#include "conio.h"
+#include <iostream>
+using namespace std;
+vector::vector(int _n)
+{
+n=_n;
+}
+vector::~vector(void)
+{
+}
+void vector::cargar(int n)
+{for (int a=0;a<n;a++)
+{cout<<"V["<<a+1<<"]= ";cin>>vec[a];
+}}
+ 
+void vector::MostrarVector()
+{
+	for(int i=0;i<n;i++){
+		cout<<vec[i]<<", ";
+}
+	cout<<endl;
+}
+
+
+int vector::EncontrarMayor()
+{
+int aux=0;
+	for(int i=0;i<n;i++)
+	{
+		if(vec[i]>aux)aux=vec[i];
+	}
+return aux;
+}
+
+// ejercicio1.cpp
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include "vector.h"
+using namespace std;
+void main()
+{int n,c; float v[NMAX];
+do{ cout<<"Ingrese el tamanio del vector: "; cin>>n;}
+while (n<=0);
+vector v1(n);
+v1.cargar(n);
+v1.mostrar(n);
+mayor=v1.Mayor(n);
+cout<<"El numero mayor es: "<<mayor<<endl;
+
+
+getch();
+}
+EJERCICIO 2
+//ejercicio2.h
+#pragma once
+#include <string>
+#define NMAX 100
+class ejercicio2
+
+{
+private: float V[NMAX];
+ int n;
+public:
+vector(int _n);
+~vector(void);
+    void cargar(int n);
+void CargarVector();
+void MostrarVector();
+int Menor();
+
+};
+ 
+//ejercicio2.cpp
+#include "StdAfx.h"
+#include "vector.h"
+#include "conio.h"
+#include <iostream>
+using namespace std;
+vector::vector(int _n)
+{
+n=_n;
+}
+vector::~vector(void)
+{
+}
+void vector::cargar(int n)
+{for (int a=0;a<n;a++)
+{cout<<"V["<<a+1<<"]= ";cin>>vec[a];
+}}
+ 
+void vector::MostrarVector()
+{
+	for(int i=0;i<n;i++){
+		cout<<vec[i]<<", ";
+}
+	cout<<endl;
+}
+
+
+int vector::Menor()
+{
+int aux=0;
+	for(int i=0;i<n;i++)
+	{
+		if(vec[i]>aux)aux=vec[i];
+	}
+return aux;
+}
+
+// ejercicio2.cpp
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include "vector.h"
+using namespace std;
+void main()
+{int n,c; float v[NMAX];
+do{ cout<<"Ingrese el tamanio del vector: "; cin>>n;}
+while (n<=0);
+vector v1(n);
+v1.cargar(n);
+v1.mostrar(n);
+menor=v1.Menor(n);
+cout<<"El numero menor es: "<<menor<<endl;
+
+
+getch();
+}
+EJERCICIO 3
+//ejercicio3.h
+#pragma once
+#include <string>
+#define NMAX 100
+class ejercicio3
+
+{
+private: float V[NMAX];
+ int n;
+public:
+vector(int _n);
+~vector(void);
+    void cargar(int n);
+void CargarVector();
+void MostrarVector();
+float prom();
+
+};
+ 
+//ejercicio3.cpp
+#include "StdAfx.h"
+#include "vector.h"
+#include "conio.h"
+#include <iostream>
+using namespace std;
+vector::vector(int _n)
+{
+n=_n;
+}
+vector::~vector(void)
+{
+}
+void vector::cargar(int n)
+{for (int a=0;a<n;a++)
+{cout<<"V["<<a+1<<"]= ";cin>>vec[a];
+}}
+ 
+void vector::MostrarVector()
+{
+	for(int i=0;i<n;i++){
+		cout<<vec[i]<<", ";
+}
+	cout<<endl;
+}
+
+
+float Vector::Prom()
+{
+int S=0;
+float promedio;
+	for(int i=0;i<n;i++)
+	{
+		S=S+vec[i];
+	}
+promedio=S/n;
+return promedio;
+}
+
+// ejercicio3.cpp
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include "vector.h"
+using namespace std;
+void main()
+{int n,c; float v[NMAX];
+do{ cout<<"Ingrese el tamanio del vector: "; cin>>n;}
+while (n<=0);
+vector v1(n);
+v1.cargar(n);
+v1.mostrar(n);
+promedio=v1.prom(n);
+cout<<"El promedio es: "<<promedio<<endl;
+
+//EJERCICIO4.h:
+#include <iostream>
+#include <stdlib.h>
+
+#pragma once
+# define NMAX 100
+
+class Vector
+{
+private:
+	int vec[NMAX], n;
+
+public:
+	Vector(int _n);
+	~Vector(void);
+
+	void cargarVector();
+	void mostrarVector();
+	void invertirVector();
+};
+
+#include <iostream>
+#include "stdafx.h"
+#include "conio.h
+#include "vector.h"
+using namespace std;
+
+Vector::Vector(int _n)
+{
+	n = _n;
+}
+
+
+Vector::~Vector(void)
+{
+}
+
+void Vector::cargarVector()
+{
+	for(int i=0;i<n;i++){
+		cout<<"vec["<<i<<"] =" ;
+		cin>>vec[i];
+	}
+}
+
+void Vector::mostrarVector()
+{
+	for(int i=0;i<n;i++){
+		cout<<vec[i]<<", ";
+	}
+	cout<<endl;
+}
+
+void Vector::invertirVector()
+{
+  int aux;
+  for(int i=0;i<n;i++;n--){
+  	aux=vec[i];
+  	vec[i]=vec[n];
+  	vec[n]=aux;
+  }
+  cout<<vec;
+
+}
+
+#include <iostream>
+#include "stdafx.h"
+#include "conio.h
+#include "vector.h"
+
+using namespace std;
+
+int main(){
+
+	int n, op;
+
+	do {
+		cout<<"Ingrese el tamano del vector : ";
+		cin>>n;
+	} while ((n>MAX) || (n<=0));
+
+	Vector v1(n);
+
+	do{
+		cout<<"-----       M E N U        -----"<<endl;
+		cout<<" 1.- Cargar Vector.            |"<<endl;
+		cout<<" 2.- Mostrar Vector.           |"<<endl;
+		cout<<" 3.- Invertir  Vector.           |"<<endl;
+		cout<<" 0.- Salir                     |"<<endl;
+		cout<<"--------------------------------"<<endl;
+		cout<<" Elija una opcion."<<endl;
+		cin>>op;
+
+		switch(op)
+		{
+			case 1:
+				v1.cargarVector(); 
+				break;
+			case 2:
+				v1.mostrarVector();
+				break;
+			case 3:
+				v1.invertirVector();
+				break;
+			case 0: 
+				cout<<"Salir"<<endl;
+				break;
+			default:
+				cout<<"Error: Opcion no valida..."<<endl;
+				break;
+		}
+
+	}while(op!=0);
+
+	getch();
+}
+
+//EJERCICIO5.H:
+#include <iostream>
+#include <stdlib.h>
+
+#pragma once
+# define MAX 100
+
+class Vector
+{
+private:
+	int vec[MAX], n;
+
+public:
+	Vector(int _n);
+	~Vector(void);
+
+	void cargarVector();
+	void mostrarVector();
+	void capicuaVector();
+};
+
+#include <iostream>
+#include "stdafx.h"
+#include "conio.h
+#include "vector.h"
+using namespace std;
+
+Vector::Vector(int _n)
+{
+	n = _n;
+}
+
+
+Vector::~Vector(void)
+{
+}
+
+void Vector::cargarVector()
+{
+	for(int i=0;i<n;i++){
+		cout<<"vec["<<i<<"] =" ;
+		cin>>vec[i];
+	}
+}
+
+void Vector::mostrarVector()
+{
+	for(int i=0;i<n;i++){
+		cout<<vec[i]<<", ";
+	}
+	cout<<endl;
+}
+
+void Vector::capicuaVector()
+{
+  int band=0;
+	for(int a=0;a<n;a++)
+	{
+		if(vec[a]!=vec[n-a-1])band=1;
+	}
+Cout<< band;
+
+}
+
+#include <iostream>
+#include "stdafx.h"
+#include "conio.h
+#include "vector.h"
+
+using namespace std;
+
+int main(){
+
+	int n, op;
+
+	do {
+		cout<<"Ingrese el tamano del vector : ";
+		cin>>n;
+	} while ((n>MAX) || (n<=0));
+
+	Vector v1(n);
+
+	do{
+		cout<<"-----       M E N U        -----"<<endl;
+		cout<<" 1.- Cargar Vector.            |"<<endl;
+		cout<<" 2.- Mostrar Vector.           |"<<endl;
+		cout<<" 3.- Capicua  Vector.           |"<<endl;
+		cout<<" 0.- Salir                     |"<<endl;
+		cout<<"--------------------------------"<<endl;
+		cout<<" Elija una opcion."<<endl;
+		cin>>op;
+
+		switch(op)
+		{
+			case 1:
+				v1.cargarVector(); 
+				break;
+			case 2:
+				v1.mostrarVector();
+				break;
+			case 3:
+				v1.capicuaVector();
+				break;
+			case 0: 
+				cout<<"Salir"<<endl;
+				break;
+			default:
+				cout<<"Error: Opcion no valida..."<<endl;
+				break;
+		}
+
+	}while(op!=0);
+
+	getch();
+}
+
+getch();
+}
+EJERCICIO 6
+//ejercicio6.h
+#pragma once
+class Vector
+{
+private:
+int n; float V[100];
+public:
+Vector(void);
+~Vector(void);
+void cargar(float V[], int n);
+void promedio(float V[], int n);
+};
+ 
+//ejercicio6.cpp
+#include "StdAfx.h"
+#include "Vector.h"
+#include <iostream>
+using namespace std;
+ 
+Vector::Vector(void)
+{
+}
+ 
+ 
+Vector::~Vector(void)
+{
+}
+ 
+void Vector::cargar (float V[], int n)
+{ for (int j=0;j<n;j++)
+{cout<<"["<<j+1<<"]=";
+ cin>>V[j];
+}
+}
+ 
+void Vector::promedio (float V[], int n)
+{for (int j=0;j<n-2;j++)
+{cout<<"P["<<j+1<<"]="<<(V[j]+V[j+1]+V[j+2])/3<<"  ";
+}
+}
+ 
+// ejercicio6main
+ 
+#include "stdafx.h"
+#include "Vector.h"
+#include "conio.h"
+#include <iostream>
+using namespace std;
+ 
+void main()
+{int N; float j[100];
+do{ cout<<"Ingrese el tamaño del vector: ";cin>>N;}
+while (N<=0||N>100);
+Vector V1;
+V1.cargar(j,N);
+cout<<"El promedio es: "<<endl;
+V1.promediar(j,N);
+getch();
+}
+
+EJERCICIO 10
+//ejercicio10.h
+#pragma once
+class Vector
+{
+private:
+int n; float A[100], B[100], C[200];
+public:
+Vector(void);
+~Vector(void);
+void cargar(float A[], int n);
+void mostrar (float A[], int n);
+void concatenar (float A[], float B[], float C[],int n);
+void ordenar( float A[], int n);
+};
+ 
+//ejercicio10.cpp
+#include "StdAfx.h"
+#include "Vector.h"
+#include <iostream>
+using namespace std;
+ 
+Vector::Vector(void)
+{
+}
+ 
+ 
+Vector::~Vector(void)
+{
+}
+ 
+void Vector::cargar (float A[], int n)
+{ for (int a=0;a<n;a++)
+{cout<<"["<<a+1<<"]=";cin>>A[a];
+}
+}
+ 
+void Vector:: mostrar (float A[], int n)
+{for (int a=0;a<n;a++)
+{cout<<"["<<a+1<<"]="<<A[a]<<"  ";
+}
+}
+ 
+void Vector::concatenar (float A[], float B[], float C[], int n)
+{ int cont=0;
+for(int a=0;a<n;a++)
+{C[cont]=A[a]; cont++;
+}
+cont=n;
+for(int i=0;i<n;i++)
+{C[cont]=B[i]; cont ++;
+}
+}
+ 
+void Vector::ordenar(float A[], int n)
+{float aux;
+for(int a=0;a<n-1;a++) 
+{for (int b=a+1;b<n;b++)
+{if(A[b]<A[a]){aux=A[a];A[a]=A[b];A[b]=aux;}
+}
+}
+}
+ 
+// ejercicio10main
+ 
+#include "stdafx.h"
+#include "Vector.h"
+#include "conio.h"
+#include <iostream>
+using namespace std;
+ 
+void main()
+{int N; float a[100], b[100], c[200];
+do{ cout<<"Ingrese el tamanio de los vectores: ";cin>>N;}
+while (N<=0||N>100);
+Vector V1,V2,V3;
+V1.cargar(a,N); V1.ordenar (a,N);
+V2.cargar(b,N); V2.ordenar (b,N);
+V3.concatenar(a,b,c,N); V3.ordenar (c,2*N);
+cout<<"Los vectores unidos y ordenados son: "<<endl;
+V3.mostrar (c,2*N);
+getch();
+}
+EJERCICIO 11
+
+//Signos.h
+
+#pragma once
+#define MAX 100
+
+class Signos
+{
+private:
+	int vec[MAX], n;
+public:
+	Signos(int _n);
+	~Signos(void);
+
+	void cargarVector();
+	void mostrarVector();
+	int signosPositivos();
+	int signosNegativos();
+	int signosCero();
+};
+
+//Signos.cpp
+
+#include "StdAfx.h"
+#include <iostream>
+#include "Signos.h"
+
+using namespace std;
+
+Signos::Signos(int _n)
+{
+	n = _n;
+}
+
+
+Signos::~Signos(void)
+{
+}
+
+void Signos::cargarVector()
+{
+	for(int i=0;i<n;i++){
+		cout<<"vec["<<i<<"] =" ;
+		cin>>vec[i];
+	}
+}
+
+void Signos::mostrarVector()
+{
+	for(int i=0;i<n;i++){
+		cout<<vec[i]<<", ";
+	}
+	cout<<endl;
+}
+
+int Signos::signosPositivos()
+{
+	int aux=0;
+	for(int i=0;i<n;i++)
+	{
+		if(vec[i]>0)
+			aux++;
+	}
+	return aux;
+}
+
+int Signos::signosNegativos()
+{
+	int aux=0;
+	for(int i=0;i<n;i++)
+	{
+		if(vec[i]<0)
+			aux++;
+	}
+	return aux;
+
+}
+
+int Signos::signosCero()
+{
+	int aux=0;
+	for(int i=0;i<n;i++)
+	{
+		if(vec[i]==0)
+			aux++;
+	}
+	return aux;
+}
+
+
+//EjemploSignos.cpp
+
+#include <iostream>
+#include "conio.h"
+#include "Signos.h"
+
+#define MAX 100
+
+using namespace std;
+
+void main()
+{
+	int n, op;
+
+	do{
+		cout<< "Ingrese el tamano del vector."<<endl;
+		cin>>n;
+	}while( (n>MAX) || (n<=0));
+
+	Signos s1(n);
+
+	do{
+		cout<<"-----       M E N U        -----"<<endl;
+		cout<<" 1.- Cargar Vector.            |"<<endl;
+		cout<<" 2.- Mostrar Vector.           |"<<endl;
+		cout<<" 3.- Signos del Vector.          |"<<endl;
+		cout<<" 0.- Salir                     |"<<endl;
+		cout<<"--------------------------------"<<endl;
+		cout<<" Elija una opcion."<<endl;
+		cin>>op;
+
+		switch(op)
+		{
+			case 1:
+				s1.cargarVector(); 
+				break;
+			case 2:
+				s1.mostrarVector();
+				break;
+			case 3:
+				cout<<"La cantidad de valores positivos son: "<<s1.signosPositivos()<<endl;;
+				cout<<"La cantidad de valores negativos son: "<<s1.signosNegativos()<<endl;;
+				cout<<"La cantidad de ceros es: "<<s1.signosCero()<<endl;;
+			case 0: 
+				cout<<"Salir"<<endl;
+				break;
+			default:
+				cout<<"Error: Opcion no valida..."<<endl;
+				break;
+		}
+
+	}while(op!=0);
+
+	getch();
+}
+EJERCICIO 12
+//ejercicio12.h
+#pragma once
+class vector
+{
+private: float vec[100];
+ int n;
+public:
+vector(int _n);
+~vector(void);
+void cargar(int n);
+int eliminardup(int n);
+void mostrar(int n, int c);
+};
+ 
+//ejercicio12.cpp
+#include "StdAfx.h"
+#include "vector.h"
+#include "conio.h"
+#include <iostream>
+using namespace std;
+vector::vector(int _n)
+{vec[100]=0;
+n=_n;
+}
+vector::~vector(void)
+{
+}
+void vector::cargar(int n)
+{for (int a=0;a<n;a++)
+{cout<<"V["<<a+1<<"]= ";cin>>vec[a];
+}}
+ 
+int vector::eliminardup(int n)
+{int cont=0;
+for (int a=0;a<n;a++)
+    {for (int b=a+1;a<n;b++)
+         {if (vec[b]==vec[a])
+              {for(int c=b; c<n-1;c++)
+                  {vec[c]=vec[c+1];
+                  }cont++;
+              }
+         }
+    }
+return (cont);}
+ 
+// ejercicio12.main
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include "vector.h"
+using namespace std;
+void main()
+{int n,c; float vec[100];
+do{ cout<<"Ingrese el tamanio del vector: "; cin>>n;}
+while (n<=0);
+vector v1(n);
+v1.cargar(n);
+c=v1.eliminardup(n);cout<<c;getch();
+cout<<"Eliminando los duplicados el vector es:"<<endl;
+v1.mostrar(n,c);
+getch();
+}
+EJERCICIO 9
+//ejercicio9.h
+#pragma once
+class Vector
+{
+private:
+int n; float A[100], B[100], C[200];
+public:
+Vector(void);
+~Vector(void);
+void cargar(float A[], int n);
+void mostrar (float A[], int n);
+void concatenar (float A[], float B[], float C[],int n);
+};
+ 
+//ejercicio9.cpp
+#include "StdAfx.h"
+#include "Vector.h"
+#include <iostream>
+using namespace std;
+ 
+Vector::Vector(void)
+{
+}
+ 
+ 
+Vector::~Vector(void)
+{
+}
+ 
+void Vector::cargar (float A[], int n)
+{ for (int a=0;a<n;a++)
+{cout<<"["<<a+1<<"]=";cin>>A[a];
+}
+}
+ 
+void Vector:: mostrar (float A[], int n)
+{for (int a=0;a<n;a++)
+{cout<<"["<<a+1<<"]="<<A[a]<<"  ";
+}
+}
+ 
+void Vector::concatenar (float A[], float B[], float C[], int n)
+{ int cont=0;
+for(int a=0;a<n;a++)
+{C[cont]=A[a]; cont++;
+}
+cont=n;
+for(int i=0;i<n;i++)
+{C[cont]=B[i]; cont ++;
+}
+}
+ 
+ 
+// ejercicio9main
+ 
+#include "stdafx.h"
+#include "Vector.h"
+#include "conio.h"
+#include <iostream>
+using namespace std;
+ 
+void main()
+{int N; float a[100], b[100], c[200];
+do{ cout<<"Ingrese el tamanio de los vectores: ";cin>>N;}
+while (N<=0||N>100);
+Vector V1,V2,V3;
+V1.cargar(a,N);
+V2.cargar(b,N);
+V3.concatenar(a,b,c,N);
+V3.mostrar (c,2*N);
+getch();
+}
