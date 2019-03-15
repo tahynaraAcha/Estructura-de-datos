@@ -1,0 +1,140 @@
+
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include <string>
+#include "Cilindro.h"
+using namespace std;
+
+void main()
+{
+	float AreaCilindro;
+	float radio,altura;
+	cout<<"Area de un cilindro"<<endl;
+	cout<<"Ingrese el radio del cilindro"<<endl;
+	cin>>radio;
+	cout<<"Ingrese la altura del cilindro"<<endl;
+	cin>>altura;
+	Cilindro c1(radio,altura);
+	AreaCilindro=c1.AreaCilindro();
+	cout<<"El area del cilindro es: "<<AreaCilindro;
+	getch();
+
+
+
+}
+
+#include "StdAfx.h"
+#include "Cilindro.h"
+
+
+Cilindro::Cilindro(int _radio, int _altura)
+{
+  radio=_radio;
+  altura=_altura;
+}
+
+
+Cilindro::~Cilindro(void)
+{
+}
+
+float Cilindro::AreaCilindro()
+{
+	float AreaBase, AreaLateral,AreaTotal;
+		AreaBase=3.141592*radio*radio;
+		AreaLateral=2*3.141592*radio*altura;
+		AreaTotal=AreaBase+AreaLateral;
+	return AreaTotal;
+}
+
+#pragma once
+
+class Cilindro
+{
+private:
+	int radio;
+	int altura;
+public:
+	Cilindro(int radio,int altura);
+	~Cilindro(void);
+	float AreaCilindro();
+};
+
+
+Problema 2
+
+#pragma once
+class Ejercicio2
+{
+private:
+	int numero;
+public:
+	Ejercicio2(int numero);
+	~Ejercicio2(void);
+	int Digitos();
+	bool Espar(int cant);
+};
+
+
+
+#include "StdAfx.h"
+#include "Ejercicio2.h"
+
+
+Ejercicio2::Ejercicio2(int _numero)
+{
+	numero=_numero;
+}
+
+
+Ejercicio2::~Ejercicio2(void)
+{
+}
+
+int Ejercicio2::Digitos()
+{
+int cont=0;
+	do{
+	numero=numero/10;
+	cont++;
+	}while(numero>0);
+return cont;
+}
+
+bool Ejercicio2::Espar(int cant)
+{
+	int aux,residuo;
+	aux=false;
+	do
+	{
+	 residuo=numero%10;
+	 if(residuo%2==0){aux= true; return aux;}
+	 numero=numero/10;
+	}while(numero>0);
+	return aux;
+}
+
+
+
+// Problema2.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include "Ejercicio2.h"
+using namespace std;
+
+void main()
+{
+int num,digitos,par;
+	cout<<"Ingrese un numero"<<endl;
+	cin>>num;
+	Ejercicio2 obj(num);
+	digitos=obj.Digitos();
+	par=obj.Espar(digitos);
+	if (par==true)cout<<"Tiene digitos pares"<<endl;
+	else cout<<"No tiene digitos pares"<<endl;
+	getch();
+}
