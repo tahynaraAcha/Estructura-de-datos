@@ -1,0 +1,132 @@
+# Estructura-de-datos
+#include "stdafx.h"
+#include "Pila.h"
+#include <iostream>
+#include <string>
+#include "conio.h"
+#define MAX 100
+using namespace std;
+
+void main()
+{
+    int n1, cont1=0, cont2=0, n2, anio;
+    string pl, ch, ma, mod;
+
+    Pila p;
+
+    cout<<"ingrese la cantidad de elementos: "<<endl;
+    cin>>n1;
+
+    do{
+        cout<<"ingrese la placa: "<<endl;
+        cin>>pl;
+        cout<<"ingrese la chasis: "<<endl;
+        cin>>ch;
+        cout<<"ingrese la marca: "<<endl;
+        cin>>ma;
+        cout<<"ingrese el modelo: "<<endl;
+        cin>>mod;
+        cout<<"ingrese el año: "<<endl;
+        cin>>anio;
+        p.apilar(pl, ch, ma, mod, anio);
+        cont1++;
+    }while(cont1<n1);
+
+    cout<<"la pila es: "<<endl;
+    p.mostrar();
+
+    cout<<"cantidad de autos a desapilar: "<<endl;
+    cin>>n2;
+
+    do{
+        p.desapilar(pl, ch, ma, mod, anio);
+        cont2++;
+    }while(cont2<n2);
+
+    p.mostrar();
+
+    getch();
+}
+
+
+
+#include "StdAfx.h"
+#include "Pila.h"
+#include <iostream>
+#define MAX 100
+using namespace std;
+
+Pila::Pila(void)
+{
+    tope=-1;
+}
+
+
+Pila::~Pila(void)
+{
+}
+
+bool Pila::apilar(string p, string c, string m, string mo, int a)
+{
+    if(tope==MAX-1)
+    {
+        cout<<"la pila esta llena"<<endl;
+        return false;
+    }else{
+        tope++;
+        placa[tope]=p;
+        chasis[tope]=c;
+        marca[tope]=m;
+        modelo[tope]=mo;
+        año[tope]=a;
+        return true;
+         }
+}
+
+bool Pila::desapilar(string &p, string &c, string &m, string &mo, int &a)
+{
+    if(tope==-1)
+    {
+        cout<<"la pila esta vacia"<<endl;
+        return false;
+    }else{
+        p=placa[tope];
+        c=chasis[tope];
+        m=marca[tope];
+        mo=modelo[tope];
+        a=año[tope];
+        tope--;
+         }
+    return true;
+}
+
+void Pila::mostrar()
+{
+    for(int a=0; a<=tope; a++)
+    {
+        cout<<placa[tope-a]<<endl;
+        cout<<chasis[tope-a]<<endl;
+        cout<<marca[tope-a]<<endl;
+        cout<<modelo[tope-a]<<endl;
+        cout<<año[tope-a]<<endl;
+    }
+}
+
+
+
+#pragma once
+#include <string>
+#define MAX 100
+using namespace std;
+class Pila
+{
+private:
+    string placa[MAX], chasis[MAX], marca[MAX] ,modelo[MAX];
+    int año[MAX],tope;
+public:
+    Pila(void);
+    ~Pila(void);
+    bool apilar(string p, string c, string m, string mo, int a);
+    bool desapilar(string &p, string &c, string &m, string &mo, int &a);
+    void mostrar();
+};
