@@ -1,0 +1,26 @@
+#include "stdafx.h"
+#include <iostream>
+#include "stdlib.h"
+#include "conio.h"
+using namespace std;
+//prototipos
+float calcular(float p);
+//programa principal
+void main()
+{ //tipos de datos
+   float precio,pfinal,iva;
+   do{
+   cout<<"Ingrese el precio del producto: ";
+	 cin>>precio;
+   } while (precio<=0);
+   iva= calcular(precio);
+   pfinal=precio+iva; //acumulador
+   cout<<"El precio con IVA es: "<<pfinal<< " y el IVA es: " <<iva;
+   getch();
+}
+
+float calcular(float p)
+{  float res;
+	 res=p*0.13;
+   return (res);
+}
