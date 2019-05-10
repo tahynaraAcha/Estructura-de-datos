@@ -1,0 +1,143 @@
+//Matriz.h
+#pragma once
+#define MAX 10
+class Matriz
+{
+private:
+    int mat[MAX][MAX];
+    int m,n;
+public:
+    Matriz(int _n, int _m);
+    ~Matriz(void);
+    void cargarmat();
+    void mostrarmat();
+    void devolvermat(int _mat[MAX][MAX]);
+    void sumarmat(int _mat1[MAX][MAX],int _mat2[MAX][MAX]);
+	void transpuesta(int _mat1[MAX][MAX]);
+};
+
+//Matriz.cpp
+#include "StdAfx.h"
+#include "Matriz.h"
+#include <iostream>
+#define MAX 10
+using namespace std;
+
+Matriz::Matriz(int _n,int _m)
+{
+    n=_n;
+    m=_m;
+
+}
+
+
+Matriz::~Matriz(void)
+{
+}
+
+void Matriz::cargarmat()
+{
+    for (int a=0;a<n;a++)
+        for (int b=0;b<m;b++)
+        {
+            cout<<"ingresar m["<<a<<"]["<<b<<"]=";
+            cin>>mat[a][b];
+        }
+}
+
+
+void Matriz::mostrarmat()
+{
+    for (int a=0;a<n;a++)
+        {
+            for (int b=0;b<m;b++)
+            {
+                cout<<mat[a][b];
+            }
+            cout<<endl;
+        }
+}
+
+
+void Matriz::devolvermat(int _mat[MAX][MAX])
+{
+    for (int a=0;a<n;a++)
+        for (int b=0;b<m;b++)
+        {
+            _mat[a][b]=mat[a][b];
+        }
+}
+
+void Matriz::sumarmat(int _mat1[MAX][MAX],int _mat2[MAX][MAX])
+{
+    for (int a=0;a<n;a++)
+        {for (int b=0;b<m;b++)
+			{
+		     mat[a][b]=_mat1[a][b]+_mat2[a][b];
+		    }
+		}
+}
+
+void Matriz::transpuesta(int _mat1[MAX][MAX])
+{ int aux;
+	for(int a=0;a<n;a++)
+		for (int b=0;b<m;b++)
+			mat[b][a]=_mat1[a][b];
+  aux=m;
+  m=n;
+  n=aux;
+}
+
+//EjemploMatriz.cpp
+#include "StdAfx.h"
+#include "Matriz.h"
+#include <iostream>
+#include "conio.h"
+#define MAX 10
+using namespace std;
+
+
+void main()
+{
+int n1,m1,opcion,mat1[MAX][MAX];
+
+	cout<<"Numero de filas para matriz A: ";
+	cin>>n1;
+	cout<<"Numero de columnas para matriz A: ";
+	cin>>m1;
+	Matriz M1(n1,m1);
+
+		do{
+		cout<<"**************M E N U ****************";
+		cout<<endl<<"1.-Cargar";
+		cout<<endl<<"2.-Mostrar";
+		cout<<endl<<"3.-Matriz transpuesta";
+		cout<<endl<<"4.-Suma de matrices";
+		cout<<endl<<"0.-Salir";
+		cout<<endl<<"Seleccione su opcion: ";
+		cin>>opcion;
+
+			switch(opcion)
+			{
+				case 1:
+					M1.cargarmat();
+					break;
+				case 2:
+					M1.mostrarmat();
+					break;
+				case 3:
+					M1.devolvermat(mat1);
+					M1.transpuesta(mat1);
+					break;
+				case 4:
+					break;
+				case 0:
+					break;
+			}
+		}while(opcion != 0);
+
+
+
+
+getch();
+}
