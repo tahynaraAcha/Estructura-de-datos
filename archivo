@@ -1,0 +1,27 @@
+// archi proyect.cpp : Defines the entry point for the console application.
+//
+#include "stdafx.h"
+#include <iostream>
+#include <stdio.h>
+#include <conio.h>
+#include<stdlib.h>
+using namespace std;
+void main ()
+{ char cadena [50];
+      FILE *Prueba;
+	  Prueba= fopen ("Prueba.txt","ab");
+	  if (Prueba== NULL)
+	  {
+		   cout<<"No se puede abrir el archivo";
+		   return;
+	  }
+	  cin.getline(cadena,50);
+	  cin.ignore();
+	  fputs(cadena,Prueba);
+	  cout<<"Texto guardado con exito"<<endl;
+	  fgets(cadena,50,Prueba);
+	  getch();
+}
+
+
+
